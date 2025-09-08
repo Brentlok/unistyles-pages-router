@@ -10,16 +10,6 @@ import {
   useUnistyles,
 } from "react-native-unistyles";
 
-const isDom =
-  typeof window === "object" &&
-  "document" in window &&
-  "navigator" in window &&
-  "HTMLElement" in window;
-
-// @ts-expect-error react-native-unistyles Pressable has a dependency on HTMLElement
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-globalThis.HTMLElement = isDom ? window.HTMLElement : function () {};
-
 function CustomApp({ Component, pageProps }: AppProps) {
   const { theme } = useUnistyles();
 
